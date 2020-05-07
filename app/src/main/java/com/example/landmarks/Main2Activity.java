@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Main2Activity extends AppCompatActivity {
     private TextView txt;
     private Button bt2;
+    private Button bt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +22,14 @@ public class Main2Activity extends AppCompatActivity {
         final Intent intent= getIntent();
         final String name = intent.getStringExtra("data");
         txt.setText(name);
+        bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2= new Intent(Main2Activity.this,MapsActivity.class);
+                intent2.putExtra("data",name);
+                startActivity(intent2);
+            }
+        });
         bt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

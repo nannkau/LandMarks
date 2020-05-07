@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">LandMarks</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
