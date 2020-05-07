@@ -19,6 +19,7 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
         txt= (TextView) findViewById(R.id.textViewData);
         bt2 = (Button) findViewById(R.id.button2);
+        bt= (Button) findViewById(R.id.button);
         final Intent intent= getIntent();
         final String name = intent.getStringExtra("data");
         txt.setText(name);
