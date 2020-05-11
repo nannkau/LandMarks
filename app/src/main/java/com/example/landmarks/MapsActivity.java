@@ -10,6 +10,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -48,15 +49,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         String name= intent.getStringExtra("data");
         switch(name){
             case "Cleveland Tower City" : {x=41.4970314;y=-81.69549517;}break;
-            case  "Browns Football Field" :  {x=41.4970314;y=-81.69549517;};break;
-            case  "Cleveland State University" :  {x=41.4970314;y=-81.69549517;};break;
-            case  "Playhouse Square" : {x=41.4970314;y=-81.69549517;};break;
-            case    "Art Museum" : {x=41.4970314;y=-81.69549517;};break;
+            case  "Browns Football Field" :  {x=41.5060575;y=-81.7017368;};break;
+            case  "Cleveland State University" :  {x=41.5025112;y=-81.6768155;};break;
+            case  "Playhouse Square" : {x=41.5025112;y=-81.6768155;};break;
+            case    "Art Museum" : {x=41.5025309;y=-81.6833816;};break;
             default:
                 throw new IllegalStateException("Unexpected value: " + name);
         }
         LatLng sydney = new LatLng(x,y);
         mMap.addMarker(new MarkerOptions().position(sydney).title(name));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney,13));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney,18));
+        MarkerOptions options= new MarkerOptions();
+        options.title(name);
+        options.position(sydney);
+        Marker marker= mMap.addMarker(options);
+        marker.showInfoWindow();
     }
 }
